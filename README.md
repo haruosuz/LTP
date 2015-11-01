@@ -1,11 +1,11 @@
 ----------
 
 Haruo Suzuki (haruo[at]g-language[dot]org)  
-Last Update: 2015-10-30  
+Last Update: 2015-11-01  
 
 ----------
 
-# Living Tree Project (LTP)
+# Living Tree Project (LTP) project
 Project started 2015-10-09.
 
 ## Project directories
