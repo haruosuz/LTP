@@ -47,10 +47,10 @@ FASTAファイルの配列エントリ数:
 
 ### [Building a BLAST database](http://www.ncbi.nlm.nih.gov/books/NBK279688/)
 
-BLASTデータベースの作成に失敗。
-FASTAファイルのヘッダ（`>`で始まる行）のタブ区切りが原因で、`makeblastdb`がエラーを出力。
-タブをスペースに置換したが、重複IDの存在により、`makeblastdb`がエラーを出力。
-データベース管理者に報告。
+BLASTデータベースの作成に失敗した。
+先ず、FASTAファイルのヘッダ（`>`で始まる行）のタブ区切りが原因で、`makeblastdb`がエラーを出力した。
+次に、タブをスペースに置換したが、重複IDの存在により、`makeblastdb`がエラーを出力した。
+以下の通り、データベース管理者に報告した。
 
 > I reported the Error to <contact@arb-silva.de>, and got a response  
 From: Raul Muñoz   
