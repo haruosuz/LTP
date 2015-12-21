@@ -47,7 +47,14 @@ FASTAファイルの配列エントリ数:
 
 ### [Building a BLAST database](http://www.ncbi.nlm.nih.gov/books/NBK279688/)
 
-`makeblastdb`がエラーを出力し、BLASTデータベースの作成に失敗。
+BLASTデータベースの作成に失敗。
+FASTAファイルのヘッダ（`>`で始まる行）のタブ区切りが原因で、`makeblastdb`がエラーを出力。
+タブをスペースに置換したが、重複IDの存在により、`makeblastdb`がエラーを出力。
+データベース管理者に報告。
+
+> I reported the Error to <contact@arb-silva.de>, and got a response  
+From: Raul Muñoz   
+Subject: Re: tab and taxonomic ranks in FASTA file header  
 
     DB=LTPs123_SSU.compressed.fasta
     makeblastdb -in $DB -dbtype nucl -hash_index -parse_seqids > makeblastdb.$DB.log 2>&1
@@ -59,14 +66,6 @@ printed the following Error messages:
     Error: (803.7) [makeblastdb] Blast-def-line-set.E.title
 
 [How can I format RDP database to be used in a BLAST search? - SEQanswers](http://seqanswers.com/forums/showthread.php?t=44700) | Problem is likely a tab character
-
-FASTAファイルのヘッダ（`>`で始まる行）のタブ区切りが問題。
-タブをスペースに置換したが、重複IDの存在によりエラー。
-データベース管理者に報告。
-
-> I reported the Error to <contact@arb-silva.de>, and got a response  
-From: Raul Muñoz   
-Subject: Re: tab and taxonomic ranks in FASTA file header  
 
 One can substituting tabs by spaces in the fasta file, using:  
 
