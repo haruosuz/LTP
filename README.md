@@ -48,9 +48,9 @@ FASTAファイルの配列エントリ数:
 ### [Building a BLAST database](http://www.ncbi.nlm.nih.gov/books/NBK279688/)
 
 BLASTデータベースの作成に失敗した。
-先ず、FASTAファイルのヘッダ（`>`で始まる行）のタブ区切りが原因で、`makeblastdb`がエラーを出力した。
+先ず、FASTAファイルのヘッダの区切り文字（タブ）により、`makeblastdb`がエラーを出力した。
 次に、タブをスペースに置換したが、重複IDの存在により、`makeblastdb`がエラーを出力した。
-以下の通り、データベース管理者に報告した。
+データベース管理者に報告した。
 
 > I reported the Error to <contact@arb-silva.de>, and got a response  
 From: Raul Muñoz   
@@ -67,11 +67,11 @@ printed the following Error messages:
 
 [How can I format RDP database to be used in a BLAST search? - SEQanswers](http://seqanswers.com/forums/showthread.php?t=44700) | Problem is likely a tab character
 
-One can substituting tabs by spaces in the fasta file, using:  
+One can substitute tabs by spaces in the FASTA file, using:  
 
-    perl -pe 's/\t/ /g' LTPs123_SSU.compressed.fasta > tmp.pl.fasta
+    perl -pe 's/\t/ /g' LTPs123_SSU.compressed.fasta > tmp.fasta
     # OR
-    cat LTPs123_SSU.compressed.fasta | tr '\11' ' ' > tmp.tr.fasta
+    cat LTPs123_SSU.compressed.fasta | tr '\11' ' ' > tmp.fasta
 
 Then, Building a BLAST database, using:
 
@@ -94,5 +94,4 @@ printed the following Error messages:
 - ['The All-Species Living Tree' Project - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/%27The_All-Species_Living_Tree%27_Project)
 
 ----------
-
 
