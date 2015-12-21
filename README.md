@@ -1,7 +1,7 @@
 ----------
 
 Haruo Suzuki (haruo[at]g-language[dot]org)  
-Last Update: 2015-12-20  
+Last Update: 2015-12-21  
 
 ----------
 
@@ -26,19 +26,18 @@ Data was downloaded on 2015-12-20 into `data/`, using:
 
 ### Inspecting Data
 
-`ls -l`でファイルの詳細情報を表示:  
+ファイルの詳細情報:  
 
     $ls -lh LTPs123_SSU.compressed.fasta*
     -rw-r--r--  1 haruo  staff    19M Aug 10 17:00 LTPs123_SSU.compressed.fasta
     -rw-r--r--  1 haruo  staff   4.2M Aug 24 18:21 LTPs123_SSU.compressed.fasta.tar.gz
 
-`grep`でFASTA形式ファイルのヘッダ（`>`で始まる行）を表示し、`wc -l`で行数を表示し、配列エントリ数をカウント:  
+FASTAファイルの配列エントリ数:  
 
-    grep '^>' LTPs123_SSU.compressed.fasta | wc -l # 11939
+    $grep '^>' LTPs123_SSU.compressed.fasta | wc -l
+    11939
 
-配列エントリ数は、11,939件。
-
-以下の通り、LTP（*LTPs123_SSU.compressed.fasta*）では、SILVA（*SILVA_123_SSURef_Nr99_tax_silva_trunc.fasta*）と比較して、分類群情報（taxonomic ranks: domain;phylum;class;order;family;genus;species）が少ない。
+以下の通り、分類群（Taxonomy）のランクは、SILVA（*SILVA_123_SSURef_Nr99_tax_silva_trunc.fasta*）に比べ、LTP（*LTPs123_SSU.compressed.fasta*）で少ない。
 
     $grep 'AB190217' LTPs123_SSU.compressed.fasta
     >AB190217	1	1306	1306bp	rna	Bacillus anthracis	Bacillaceae
@@ -48,10 +47,12 @@ Data was downloaded on 2015-12-20 into `data/`, using:
 
 ### [Building a BLAST database](http://www.ncbi.nlm.nih.gov/books/NBK279688/)
 
+`makeblastdb`がエラーを出力し、BLASTデータベースの作成に失敗。
+
     DB=LTPs123_SSU.compressed.fasta
     makeblastdb -in $DB -dbtype nucl -hash_index -parse_seqids > makeblastdb.$DB.log 2>&1
 
-#### Error
+printed the following Error messages:
 
     $grep "Error" makeblastdb.LTPs123_SSU.compressed.fasta.log | sort | uniq
     Error: (803.7) [makeblastdb] Blast-def-line-set.E.seqid.E.local.str
@@ -59,11 +60,12 @@ Data was downloaded on 2015-12-20 into `data/`, using:
 
 [How can I format RDP database to be used in a BLAST search? - SEQanswers](http://seqanswers.com/forums/showthread.php?t=44700) | Problem is likely a tab character
 
-FASTAファイル（*LTPs123_SSU.compressed.fasta*）のヘッダのタブ区切りが問題。
-以下の通り、エラーを報告。タブをスペースに置換したが、重複IDの存在によりエラー。
+FASTAファイルのヘッダ（`>`で始まる行）のタブ区切りが問題。
+タブをスペースに置換したが、重複IDの存在によりエラー。
+データベース管理者に報告。
 
 > I reported the Error to <contact@arb-silva.de>, and got a response  
-From: Raul Muñoz <raul@imedea.uib-csic.es>  
+From: Raul Muñoz   
 Subject: Re: tab and taxonomic ranks in FASTA file header  
 
 One can substituting tabs by spaces in the fasta file, using:  
@@ -84,8 +86,6 @@ printed the following Error messages:
     $grep -n 'CP001336' LTPs123_SSU.compressed.fasta
     59310:>CP001336	3389423	3391083	1661bp	rna	Desulfitobacterium hafniense	Peptococcaceae
     59332:>CP001336	3873538	3875208	1671bp	rna	Desulfitobacterium hafniense	Peptococcaceae
-
-
 
 ----------
 
