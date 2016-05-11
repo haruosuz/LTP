@@ -1,23 +1,27 @@
 ----------
 
 Haruo Suzuki  
-Last Update: 2015-12-21  
+Last Update: 2016-05-12  
 
 ----------
 
 # Living Tree Project (LTP) project
 Project started 2015-10-09.
 
+["The All-Species Living Tree" Project (LTP)](http://www.arb-silva.de/projects/living-tree/] rRNA datasets were retrieved and analysed using the R SeqinR package.
+
 ## Project directories
 
     ltp/
      README.md: project documentation 
      data/: contains sequence data in FASTA or BLAST database format
+     scripts/: contains R and Shell scripts
+     analysis/: contains results of data analyses
 
 ## Data
-Data was downloaded on 2015-12-20 into `data/`, using:
+LTP datasets based on SILVA release 123 was downloaded on 2015-12-20 from <http://www.arb-silva.de/no_cache/download/archive/living_tree/LTP_release_123/> into `data/`, using:
 
-    wget -b http://www.arb-silva.de/fileadmin/silva_databases/living_tree/LTP_release_123/LTPs123_SSU.compressed.fasta.tar.gz
+    wget http://www.arb-silva.de/fileadmin/silva_databases/living_tree/LTP_release_123/LTPs123_SSU.compressed.fasta.tar.gz
     tar xvzf LTPs123_SSU.compressed.fasta.tar.gz 
 
 ----------
