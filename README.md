@@ -19,7 +19,7 @@ rRNA datasets were retrieved from ["The All-Species Living Tree" Project (LTP)](
      analysis/: contains results of data analyses
 
 ## Data
-LTP datasets based on SILVA release 123 was downloaded on 2015-12-20 from <http://www.arb-silva.de/no_cache/download/archive/living_tree/LTP_release_123/> into `data/`, using:
+LTP datasets based on SILVA release 123 was downloaded on 2015-12-20 from [archive](http://www.arb-silva.de/no_cache/download/archive/living_tree/LTP_release_123/) into `data/`, using:
 
     wget http://www.arb-silva.de/fileadmin/silva_databases/living_tree/LTP_release_123/LTPs123_SSU.compressed.fasta.tar.gz
     tar xvzf LTPs123_SSU.compressed.fasta.tar.gz 
