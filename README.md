@@ -8,7 +8,7 @@ Last Update: 2016-05-12
 # Living Tree Project (LTP) project
 Project started 2015-10-09.
 
-["The All-Species Living Tree" Project (LTP)](http://www.arb-silva.de/projects/living-tree/] rRNA datasets were retrieved and analysed using the R SeqinR package.
+rRNA datasets were retrieved from ["The All-Species Living Tree" Project (LTP)](http://www.arb-silva.de/projects/living-tree/).
 
 ## Project directories
 
